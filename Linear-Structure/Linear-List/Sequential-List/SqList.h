@@ -18,5 +18,8 @@ typedef struct{
 }SqList;
     //A SqList includes elements(elem), the length of the list(length) and the size of the list(listsize).
 
-Status InitList(SqList*);
+Status InitList(SqList *pL);
     //InitList initiates the list with size LIST_INIT_SIZE and length 0;
+Status ListInsert(SqList *pL, int i, ElemType e);
+    //ListInsert inserts element e as the poineer of the ith element in the list.
+    //The range of i is 1 <= i <= pL->length + 1.
