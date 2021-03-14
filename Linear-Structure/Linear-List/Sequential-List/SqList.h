@@ -26,3 +26,8 @@ Status ListInsert(SqList *pL, int i, ElemType e);
 Status ListDelete(SqList *pL, int i, ElemType e);
     //ListDelete deletes the ith element in the list, and e carries the value of the deleted element.
     //The range of i is 1 <= i <= pL->length.
+int LocateElem(SqList *pL, ElemType e, Status (*comp)(const ElemType a, const ElemType b));
+    //LocateElem locates element e in the list.
+    //It returns the location of the element firstly satisfy comp(e, pL->elem[i]).
+    //If element e is not in the list, it returns ERROR.
+    //comp is a function which could compare elem a and b, and returns a status code.

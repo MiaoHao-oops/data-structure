@@ -74,3 +74,29 @@ Status ListDelete(SqList *pL, int i, ElemType e)
         //Reduce the length of the list by 1.
     return OK;
 }
+
+int LocateElem(SqList *pL, ElemType e, Status (*comp)(const ElemType a, const ElemType b))
+{
+    int i = 1;
+        //i is the index of the first element in the list.
+    ElemType *p = &(pL->elem);
+        //p is the addr of the first element in the list.
+
+    while (i <= pL->length && (*comp)(*p, e))
+    {
+            //Search for the element satisfies "(*comp)(*p, e) != 0".
+        i++;
+        p++;
+    }
+
+    if (i > pL->length)
+    {
+            //Element e is not in the list
+        return ERROR;
+    }
+    else
+    {
+            //Element e is in the list, and the function returns its location(index) i.
+        return i;
+    }
+}
