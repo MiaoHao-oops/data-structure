@@ -34,3 +34,6 @@ int LocateElem(SqList *pL, ElemType e, Status (*comp)(const ElemType a, const El
 Status DestoryList(SqList *pL);
     //DeatoryList destories the existing list.
     //If the list has not been initialized, the function would return ERROR.
+Status ListTraverse(SqList *pL, Status (*visit)(ElemType e));
+    //ListTraverse goes through every element in the list in order, and apply function visit() to each element.
+    //If the application on any element is failed, this function would return ERROR.

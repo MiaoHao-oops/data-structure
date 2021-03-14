@@ -115,3 +115,28 @@ Status DestoryList(SqList *pL)
     pL->elem = NULL;
     return OK;
 }
+
+Status ListTraverse(SqList *pL, Status (*visit)(ElemType e))
+{
+    int i;
+    ElemType *p;
+    
+    for (i = 1, p = pL->elem; i <= pL->length; i++, p++)
+    {
+        if (!(*visit)(*p))
+        {
+                //The application is failed.
+            break;
+        }
+    }
+
+    if (i <= pL->length)
+    {
+            //That means the for loop was broken.
+        return ERROR;
+    }
+    else
+    {
+        return OK;
+    }
+}
