@@ -4,6 +4,7 @@
 int main()
 {
     SqList L;
+    L.elem = NULL;
 
     return 0;
 }

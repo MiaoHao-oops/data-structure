@@ -100,3 +100,18 @@ int LocateElem(SqList *pL, ElemType e, Status (*comp)(const ElemType a, const El
         return i;
     }
 }
+
+Status DestoryList(SqList *pL)
+{
+    if (pL->elem == NULL)
+    {
+            //The list has not been initialized.
+        return ERROR;
+    }
+    pL->length = 0;
+    pL->listsize = 0;
+    free(pL->elem);
+        //Free the memory allocated by funtion alloc or realloc.
+    pL->elem = NULL;
+    return OK;
+}

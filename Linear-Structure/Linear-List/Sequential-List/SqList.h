@@ -31,3 +31,5 @@ int LocateElem(SqList *pL, ElemType e, Status (*comp)(const ElemType a, const El
     //It returns the location of the element firstly satisfy comp(e, pL->elem[i]).
     //If element e is not in the list, it returns ERROR.
     //comp is a function which could compare elem a and b, and returns a status code.
+Status DestoryList(SqList *pL);
+    //DeatoryList destories the existing list.
