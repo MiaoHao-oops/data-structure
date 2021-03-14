@@ -23,3 +23,6 @@ Status InitList(SqList *pL);
 Status ListInsert(SqList *pL, int i, ElemType e);
     //ListInsert inserts element e as the poineer of the ith element in the list.
     //The range of i is 1 <= i <= pL->length + 1.
+Status ListDelete(SqList *pL, int i, ElemType e);
+    //ListDelete deletes the ith element in the list, and e carries the value of the deleted element.
+    //The range of i is 1 <= i <= pL->length.

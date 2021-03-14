@@ -53,3 +53,24 @@ Status ListInsert(SqList *pL, int i, ElemType e)
         //Increase the length of the list L.
     return OK;
 }
+
+Status ListDelete(SqList *pL, int i, ElemType e)
+{
+    if (i < 1 || i > pL->length)
+    {
+            //Input i is illegal.
+        return ERROR;
+    }
+    ElemType *p = &(pL->elem[i - 1]);
+        //p is the addr of the deleted element.
+    e = *p;
+    ElemType *q = &(pL->elem[pL->length - 1]);
+        //q is the addr of the last element in the list.
+    for (p++; p <= q; p++)
+    {
+        *(p - 1) = *p;
+    }
+    --pL->length;
+        //Reduce the length of the list by 1.
+    return OK;
+}
