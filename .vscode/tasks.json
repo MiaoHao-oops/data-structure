@@ -7,10 +7,10 @@
 			"command": "C:\\Program Files\\MinGW\\bin\\gcc.exe",
 			"args": [
 				"-g",
-				"${file}",
 				"-o",
-				"main.c",
-				"operation.c"
+				"${fileDirname}\\main.exe",
+				"${fileDirname}\\main.c",
+				"${fileDirname}\\operation.c"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"

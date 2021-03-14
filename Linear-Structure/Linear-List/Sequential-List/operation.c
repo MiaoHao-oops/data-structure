@@ -79,7 +79,7 @@ int LocateElem(SqList *pL, ElemType e, Status (*comp)(const ElemType a, const El
 {
     int i = 1;
         //i is the index of the first element in the list.
-    ElemType *p = &(pL->elem);
+    ElemType *p = &(pL->elem[0]);
         //p is the addr of the first element in the list.
 
     while (i <= pL->length && (*comp)(*p, e))
