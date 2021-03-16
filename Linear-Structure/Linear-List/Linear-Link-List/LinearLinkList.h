@@ -14,6 +14,6 @@ typedef struct LNode
     //A LNode includes data and a pointer, which points to the next node.
     //Type LinkList is a pointer of LNode, and it is also called a head pointer.
 
-Status InitList(LinkList L);
+Status InitList(LinkList *pL);
     //InitList initialized the link list.
     //After the initialization, L points to the head node of the link list.

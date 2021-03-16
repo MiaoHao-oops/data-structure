@@ -1,16 +1,16 @@
 #include"LinearLinkList.h"
 #include<stdlib.h>
 
-Status InitList(LinkList L)
+Status InitList(LinkList *pL)
 {
         //L is the head pointer of the link list.
-    L = (LNode*)malloc(sizeof(LNode));
-    if (!L)
+    *pL = (LNode*)malloc(sizeof(LNode));
+    if (!*pL)
     {
             ////The allocation is unsucceeded.
         exit(OVERFLOW);
     }
-    L->next = NULL;
+    (*pL)->next = NULL;
         //Empty the link list.
         //L now points to the head node of the link list.
     return OK;
