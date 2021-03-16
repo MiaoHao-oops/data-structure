@@ -81,5 +81,10 @@ Status ListDele(LinkList L, int i)
     s = p->next->next;
     free(p->next);
     p->next = s;
+    /*
+    s = p->next;
+    p->next = s->next;
+    free(s);
+    */
     return OK;
 }
