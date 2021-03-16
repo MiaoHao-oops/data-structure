@@ -88,3 +88,23 @@ Status ListDele(LinkList L, int i)
     */
     return OK;
 }
+
+Status DestoryList(LinkList *pL)
+{
+    if (!*pL)
+    {
+            //If the list does not exist, return ERROR.
+        return ERROR;
+    }
+    LNode *p, *s;
+    p = *pL;
+    while (!p)
+    {
+            //Delete the nodes in the list one by one.
+        s = p->next;
+        free(p);
+        p = s;
+    }
+    *pL = NULL;
+    return OK;
+}

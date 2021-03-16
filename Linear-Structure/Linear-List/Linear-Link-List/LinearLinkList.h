@@ -24,3 +24,6 @@ Status ListInsert(LinkList L, int i, Elemtype e);
     //The range of i is 1 <= i <= ListLength(L) + 1.
 Status ListDele(LinkList L, int i);
     //ListDelete deletes the ith node in the list.
+Status DestoryList(LinkList *pL);
+    //DeatoryList destories the existing list.
+    //If the list has not been initialized, the function would return ERROR.
