@@ -9,7 +9,7 @@ typedef int Elemtype;
 typedef struct LNode
 {
     Elemtype data;
-    LNode *next;
+    struct LNode *next;
 }LNode, *LinkList;
     //A LNode includes data and a pointer, which points to the next node.
     //Type LinkList is a pointer of LNode, and it is also called a head pointer.
@@ -17,3 +17,8 @@ typedef struct LNode
 Status InitList(LinkList *pL);
     //InitList initialized the link list.
     //After the initialization, L points to the head node of the link list.
+int ListLength(LinkList L);
+    //ListLength returns the length of the link list L.
+Status ListInsert(LinkList L, int i, Elemtype e);
+    //ListInsert inserts element e as the poineer of the ith element in the list.
+    //The range of i is 1 <= i <= ListLength(L) + 1.

@@ -11,7 +11,8 @@
 typedef int Status;
 typedef int ElemType;   
     //The type of element is flexible, and it could even be a struct.
-typedef struct{
+typedef struct
+{
     ElemType *elem;
     int length;
     int listsize;
