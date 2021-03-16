@@ -22,3 +22,5 @@ int ListLength(LinkList L);
 Status ListInsert(LinkList L, int i, Elemtype e);
     //ListInsert inserts element e as the poineer of the ith element in the list.
     //The range of i is 1 <= i <= ListLength(L) + 1.
+Status ListDele(LinkList L, int i);
+    //ListDelete deletes the ith node in the list.

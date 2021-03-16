@@ -60,3 +60,26 @@ Status ListInsert(LinkList L, int i, Elemtype e)
     p->next = s;
     return OK;    
 }
+
+Status ListDele(LinkList L, int i)
+{
+    int j = 0;
+    LNode *p;
+        //p points to the poineer of the ith node in the list.
+    p = L;
+    while (p->next && j < i - 1)
+    {
+        p = p->next;
+        j++;
+    }
+    if (!p->next || j > i - 1)
+    {
+        return ERROR;
+    }
+
+    LNode *s;
+    s = p->next->next;
+    free(p->next);
+    p->next = s;
+    return OK;
+}
