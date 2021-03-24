@@ -25,9 +25,9 @@ typedef struct
 
 Status InitQueue(LQueue *pQ);
     //InitQueue add a head node to the queue Q.
-Status EnQueue(LQueue Q, ElemType e);
+Status EnQueue(LQueue *pQ, ElemType e);
     //EnQueue add the element e to the queue Q.
-Status DeQueue(LQueue Q, ElemType *pe);
+Status DeQueue(LQueue *pQ, ElemType *pe);
     //DeQueue delete the element in the front of the queue Q and gives its value to e.
 
 #endif

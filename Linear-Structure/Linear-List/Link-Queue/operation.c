@@ -12,7 +12,7 @@ Status InitQueue(LQueue *pQ)
     return OK;
 }
 
-Status EnQueue(LQueue Q, ElemType e)
+Status EnQueue(LQueue *pQ, ElemType e)
 {
     QNode *p;
     p = (QNode *)malloc(sizeof(QNode));
@@ -24,27 +24,27 @@ Status EnQueue(LQueue Q, ElemType e)
         //Add p to the rear of the queue.
     p->data = e;
     p->next = NULL;
-    Q.rear->next = p;
-    Q.rear = p;
+    pQ->rear->next = p;
+    pQ->rear = p;
     return OK;
 }
 
-Status DeQueue(LQueue Q, ElemType *pe)
+Status DeQueue(LQueue *pQ, ElemType *pe)
 {
-    if (Q.rear == Q.front)
+    if (pQ->rear == pQ->front)
     {
             //The queue is empty.
         return ERROR;
     }
 
     QNode *p;
-    p = Q.front->next;
+    p = pQ->front->next;
     *pe = p->data;
-    Q.front->next = p->next;
-    if (Q.rear == p)
+    pQ->front->next = p->next;
+    if (pQ->rear == p)
     {   
             //There is only one element in the queue.
-        Q.rear = Q.front;
+        pQ->rear = pQ->front;
     }
     free(p);
     return OK;
