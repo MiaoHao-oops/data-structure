@@ -1,3 +1,5 @@
+#ifndef _LINEARLINKLIST_H_
+#define _LINEARLINKLIST_H_
 #define OK 1
     //If a funtion functions well, it would return OK.
 #define ERROR 0
@@ -27,3 +29,5 @@ Status ListDele(LinkList L, int i);
 Status DestoryList(LinkList *pL);
     //DeatoryList destories the existing list.
     //If the list has not been initialized, the function would return ERROR.
+
+#endif

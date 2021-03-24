@@ -1,3 +1,5 @@
+#ifndef _SQSTACK_H_
+#define _SQSTACK_H_
 #include<stdlib.h>
 #include<stdio.h>
 #define INITSIZE 100
@@ -21,3 +23,5 @@ Status Pop(SqStack *pS, ElemType *pe);
 Status GetTop(SqStack S, ElemType *pe);
     //GetTop gets the top element in S, and gives it value to e but not move top.
 Status IsEmpty(SqStack S);
+
+#endif

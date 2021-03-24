@@ -1,3 +1,5 @@
+#ifndef _SQLIST_H_
+#define _SQLIST_H_
 #define OK 1
     //If a funtion functions well, it would return OK.
 #define ERROR 0
@@ -38,3 +40,5 @@ Status DestoryList(SqList *pL);
 Status ListTraverse(SqList *pL, Status (*visit)(ElemType e));
     //ListTraverse goes through every element in the list in order, and apply function visit() to each element.
     //If the application on any element is failed, this function would return ERROR.
+    
+#endif
