@@ -28,3 +28,24 @@ Status EnQueue(LQueue Q, ElemType e)
     Q.rear = p;
     return OK;
 }
+
+Status DeQueue(LQueue Q, ElemType *pe)
+{
+    if (Q.rear == Q.front)
+    {
+            //The queue is empty.
+        return ERROR;
+    }
+
+    QNode *p;
+    p = Q.front->next;
+    *pe = p->data;
+    Q.front->next = p->next;
+    if (Q.rear == p)
+    {   
+            //There is only one element in the queue.
+        Q.rear = Q.front;
+    }
+    free(p);
+    return OK;
+}
