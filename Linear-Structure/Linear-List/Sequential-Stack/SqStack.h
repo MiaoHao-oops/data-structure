@@ -18,3 +18,6 @@ Status Push(SqStack *pS, ElemType e);
     //Push pushes element e to the top of the stack S.
 Status Pop(SqStack *pS, ElemType *pe);
     //Pop pops the element on the top of the stack S, and gives it value to e.
+Status GetTop(SqStack S, ElemType *pe);
+    //GetTop gets the top element in S, and gives it value to e but not move top.
+Status IsEmpty(SqStack S);

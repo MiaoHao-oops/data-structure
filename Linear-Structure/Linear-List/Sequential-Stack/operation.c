@@ -40,3 +40,23 @@ Status Pop(SqStack *pS, ElemType *pe)
     *pe = pS->base[--pS->top];
     return 1;
 }
+
+Status GetTop(SqStack S, ElemType *pe)
+{
+    if (S.top == 0)
+    {
+            //The case that S is empty.
+        return 0;
+    }
+    *pe = S.base[S.top];
+    return 1;
+}
+
+Status IsEmpty(SqStack S)
+{
+    if (S.top == 0)
+    {
+        return 1;
+    }
+    return 0;
+}
