@@ -24,6 +24,9 @@ typedef struct
 }CiQueue;
 
 Status InitQueue(CiQueue *pQ);
+    //InitQueue initializes the CiQueueu Q.
+int IsEmpty(CiQueue pQ);
+    //IsEmpty judges whether the CiQueue Q is empty (returns 1), or not (returns 0).
 
 
 #endif
