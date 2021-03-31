@@ -25,6 +25,8 @@ typedef struct
 
 Status InitQueue(CiQueue *pQ);
     //InitQueue initializes the CiQueueu Q.
+int GetQLen(CiQueue Q);
+    //GetQLen returns the length of CiQueue Q.
 int IsEmpty(CiQueue Q);
     //IsEmpty judges whether the CiQueue Q is empty (returns 1), or not (returns 0).
 int IsFull(CiQueue Q);

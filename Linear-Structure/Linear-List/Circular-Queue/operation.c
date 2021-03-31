@@ -13,6 +13,11 @@ Status InitQueue(CiQueue *pQ)
     return OK;
 }
 
+int GetQLen(CiQueue Q)
+{
+    return (Q.raer - Q.front + INIT_SIZE) % INIT_SIZE;
+}
+
 int IsEmpty(CiQueue Q)
 {
     if (Q.front == Q.raer)
