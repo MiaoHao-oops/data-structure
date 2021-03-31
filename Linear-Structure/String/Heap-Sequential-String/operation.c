@@ -33,3 +33,14 @@ Status IsStrEqual(HeString S1, HeString S2)
 
     return (*(S1.str) - *(S2.str)) == 0;
 }
+
+int StrCmp(HeString S1, HeString S2)
+{
+    while (*(S1.str++) == *(S2.str++))
+    {
+            //Compare each character in each string.
+        ;
+    }
+
+    return *(S1.str) - *(S2.str);
+}
