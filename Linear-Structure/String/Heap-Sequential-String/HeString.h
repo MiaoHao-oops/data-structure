@@ -20,4 +20,7 @@ typedef struct
     int size;
 }HeString;
 
+Status InitStr(HeString *pS);
+    //InitStr initializes the heap-sequential-string(HeString) S.
+
 #endif
