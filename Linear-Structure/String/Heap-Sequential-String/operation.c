@@ -79,6 +79,27 @@ Status StrAssign(HeString *pS, char *sc)
     {
         ;
     }
-    
+
     return OK;
+}
+Status StrSubstr(HeString S, HeString *pSubs, int i, int j)
+{
+    if (i < 0 || i >= S.length || j < 0 || i + j - 1 >= S.length)
+    {
+            //illegal input, out of range
+        return ERROR;
+    }
+
+    char *s, *t;
+    int k = 0;
+    s = S.str + i;
+    t = pSubs->str;
+    while (k < j)
+    {
+        *t++ = *s++;
+        k++;
+    }
+    *t = '\0';
+    pSubs->length = j;
+    return 0;
 }

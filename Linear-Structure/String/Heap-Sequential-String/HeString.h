@@ -30,5 +30,8 @@ int StrCmp(HeString S1, HeString S2);
     //StrCmp compares two HeString S1 and S2, and return the difference between them.
 Status StrAssign(HeString *pS, char *sc);
     //StrAssign copies the const string sc to HeString S.
+Status StrSubstr(HeString S, HeString *pSubs, int i, int j);
+    //Take the substring and put the consecutive j characters in S starting from the i-th character into Subs.
+    //The index begins from 0.
 
 #endif
