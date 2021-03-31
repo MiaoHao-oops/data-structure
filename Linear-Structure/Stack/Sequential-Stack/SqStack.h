@@ -5,6 +5,12 @@
 #define INITSIZE 100
 #define INCREASEMENTSIZE 10
 
+#define OK 1
+    //If a funtion functions well, it would return OK.
+#define ERROR 0
+    //If a funtion has something wrong, it would return ERROR.
+#define OVERFLOW -1
+
 typedef int ElemType;
 typedef int Status;
 typedef struct 

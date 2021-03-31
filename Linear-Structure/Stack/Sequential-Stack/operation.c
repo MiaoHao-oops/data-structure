@@ -6,11 +6,11 @@ Status InitStack(SqStack *pS)
     if (!pS->base)
     {
             //The allocation is unsuceeded.
-        return 0;
+        return ERROR;
     }
     pS->top = 0;
     pS->stacksize = INITSIZE;
-    return 1;
+    return OK;
 }
 
 Status Push(SqStack *pS, ElemType e)
@@ -21,13 +21,13 @@ Status Push(SqStack *pS, ElemType e)
         pS->base = (ElemType *)realloc(pS->base, sizeof(ElemType) * (pS->stacksize + INCREASEMENTSIZE));
         if (!pS->base)
         {
-            return 0;
+            return ERROR;
         }
         pS->stacksize += INCREASEMENTSIZE;
     }
 
     pS->base[pS->top++] = e;
-    return 1;
+    return OK;
 }
 
 Status Pop(SqStack *pS, ElemType *pe)
@@ -35,10 +35,10 @@ Status Pop(SqStack *pS, ElemType *pe)
     if (pS->top == 0)
     {
             //The case that S is empty.
-        return 0;
+        return ERROR;
     }
     *pe = pS->base[--pS->top];
-    return 1;
+    return OK;
 }
 
 Status GetTop(SqStack S, ElemType *pe)
@@ -46,17 +46,17 @@ Status GetTop(SqStack S, ElemType *pe)
     if (S.top == 0)
     {
             //The case that S is empty.
-        return 0;
+        return ERROR;
     }
     *pe = S.base[S.top];
-    return 1;
+    return OK;
 }
 
 Status IsEmpty(SqStack S)
 {
     if (S.top == 0)
     {
-        return 1;
+        return OK;
     }
-    return 0;
+    return ERROR;
 }
