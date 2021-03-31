@@ -22,4 +22,15 @@ int IsEmpty(CiQueue Q)
     }
         //The CiQueue Q is not empty.
     return 0;
-} 
+}
+
+int IsFull(CiQueue Q)
+{
+    if ((Q.raer + 1) % INIT_SIZE == Q.front)
+    {
+            //The CiQueue Q is full.
+        return 1;
+    }
+        //The CiQueue Q is not full.
+    return 0;
+}
