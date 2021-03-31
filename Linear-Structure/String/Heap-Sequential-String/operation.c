@@ -8,6 +8,8 @@ Status InitStr(HeString *pS)
             //The allocation is unsucceeded.
         return ERROR;
     }
+    pS->str[0] = '\0';
+        //Init str as an empty string
     pS->size = INIT_SIZE;
     pS->length = 0;
     return OK;
