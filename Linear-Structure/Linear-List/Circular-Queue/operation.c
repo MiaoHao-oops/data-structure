@@ -34,3 +34,16 @@ int IsFull(CiQueue Q)
         //The CiQueue Q is not full.
     return 0;
 }
+
+Status EnQueue(CiQueue *pQ, ElemType e)
+{
+    if (IsFull(*pQ))
+    {
+            //If the CiQueue is full, returns ERROR.
+        return ERROR;
+    }
+
+    pQ->base[pQ->raer] = e;
+    pQ->raer = (pQ->raer + 1) % INIT_SIZE;
+    return OK;
+}

@@ -29,5 +29,6 @@ int IsEmpty(CiQueue Q);
     //IsEmpty judges whether the CiQueue Q is empty (returns 1), or not (returns 0).
 int IsFull(CiQueue Q);
     //IsFull judges whether the CiQueue Q is full (returns 1), or not (returns 0).
+Status EnQueue(CiQueue *pQ, ElemType e);
 
 #endif
