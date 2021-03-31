@@ -46,3 +46,39 @@ int StrCmp(HeString S1, HeString S2)
 
     return *(S1.str) - *(S2.str);
 }
+
+Status StrAssign(HeString *pS, char *sc)
+{
+    int lenSC = 0;
+    while (sc[lenSC])
+    {
+            //Cauculate the length of sc
+        lenSC++;
+    }
+
+    if (lenSC >= pS->size)
+    {
+        pS->str = (char *)realloc(pS->str, (lenSC + 1) * sizeof(char));
+        if (!pS->str)
+        {
+                //The allocation is unsucceeded.
+            return ERROR;
+        }
+
+        pS->size = lenSC + 1;
+    }
+
+    pS->length = lenSC;
+
+    char *s, *t;
+
+    s = pS->str;
+    t = sc;
+
+    while (*s++ = *t++)
+    {
+        ;
+    }
+    
+    return OK;
+}

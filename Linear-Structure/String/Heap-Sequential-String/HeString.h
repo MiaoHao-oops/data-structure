@@ -28,5 +28,7 @@ Status IsStrEqual(HeString S1, HeString S2);
     //IsStrEqual judges whether HeString S1 is equal to S2 (returns 1), or not (returns 0).
 int StrCmp(HeString S1, HeString S2);
     //StrCmp compares two HeString S1 and S2, and return the difference between them.
-    
+Status StrAssign(HeString *pS, char *sc);
+    //StrAssign copies the const string sc to HeString S.
+
 #endif

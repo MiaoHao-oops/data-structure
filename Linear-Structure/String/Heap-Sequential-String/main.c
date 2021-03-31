@@ -1,5 +1,7 @@
 #include "HeString.h"
 
+char sc[] = "Wow"; 
+
 int main()
 {
     HeString S;
@@ -8,5 +10,7 @@ int main()
     int lenS;
     lenS = StrLen(S);
 
+    StrAssign(&S, sc);
+    
     return 0;
 }
