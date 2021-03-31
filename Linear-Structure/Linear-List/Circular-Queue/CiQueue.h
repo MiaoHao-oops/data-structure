@@ -30,5 +30,8 @@ int IsEmpty(CiQueue Q);
 int IsFull(CiQueue Q);
     //IsFull judges whether the CiQueue Q is full (returns 1), or not (returns 0).
 Status EnQueue(CiQueue *pQ, ElemType e);
+    //EnQueue adds the element e to the rear of the CiQueue Q.
+Status DeQueue(CiQueue *pS, ElemType *pe);
+    //DeQueue delete the last element in the CiQueue Q, and gives its value to e.
 
 #endif

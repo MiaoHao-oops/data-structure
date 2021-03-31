@@ -47,3 +47,16 @@ Status EnQueue(CiQueue *pQ, ElemType e)
     pQ->raer = (pQ->raer + 1) % INIT_SIZE;
     return OK;
 }
+
+Status DeQueue(CiQueue *pQ, ElemType *pe)
+{
+    if (IsEmpty(*pQ))
+    {
+            //if the CiQueue is empty, returns ERROR;
+        return ERROR;
+    }
+
+    *pe = pQ->base[pQ->front];
+    pQ->front = (pQ->front + 1) % INIT_SIZE;
+    return OK;
+}
