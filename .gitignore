@@ -1,2 +1,5 @@
 # Windows executive files
 *.exe
+
+# Vscode configuration files
+*.json

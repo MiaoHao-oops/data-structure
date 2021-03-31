@@ -22,5 +22,8 @@ typedef struct
 
 Status InitStr(HeString *pS);
     //InitStr initializes the heap-sequential-string(HeString) S.
-
+int StrLen(HeString S);
+    //StrLen returns the length of HeString S.
+Status IsStrEqual(HeString S1, HeString S2);
+    //IsStrEqual judges whether HeString S1 is equal to S2 (returns 1), or not (returns 0).
 #endif

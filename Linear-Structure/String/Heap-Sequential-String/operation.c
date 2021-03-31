@@ -12,3 +12,24 @@ Status InitStr(HeString *pS)
     pS->length = 0;
     return OK;
 }
+
+int StrLen(HeString S)
+{
+    return S.length;
+}
+
+Status IsStrEqual(HeString S1, HeString S2)
+{
+    if (S1.length != S2.length)
+    {
+        return 0;
+    }
+
+    while (*(S1.str++) == *(S2.str++))
+    {
+            //Compare each character in each string.
+        ;
+    }
+
+    return (*(S1.str) - *(S2.str)) == 0;
+}
