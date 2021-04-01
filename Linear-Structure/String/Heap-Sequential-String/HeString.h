@@ -14,7 +14,7 @@
 
 typedef int Status;
 typedef struct
-{
+{  
     char *str;
         //The index of str begins with 0.
     int length;
@@ -41,7 +41,7 @@ Status StrAssign(HeString *pS, char *sc);
 Status StrSubstr(HeString S, HeString *pSubs, int i, int j);
     //Take the substring and put the consecutive j characters in S starting from the i-th character into Subs.
     //The index begins from 0.
-    
+
 Status StrInsert(HeString *pS, HeString *pT, int i);
     //StrInsert insert HeString T before the i-th character in HeString S.
 
