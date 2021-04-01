@@ -103,3 +103,37 @@ Status StrSubstr(HeString S, HeString *pSubs, int i, int j)
     pSubs->length = j;
     return 0;
 }
+
+Status StrInsert(HeString *pS, HeString *pT, int i)
+{
+    if (i < 0 || i > pS->length)
+    {
+            //illegal input i
+        return ERROR;
+    }
+
+    if (pS->length + pT->length >= pS->size)
+    {
+        pS->str = (char *)realloc(pS->str, (pS->length + pT->length + 1) * sizeof(char));
+        if (!pS->str)
+        {
+            return ERROR;
+        }
+        pS->size = pS->length + pT->length + 1;
+    }
+    
+
+    int j;
+    for (j = pS->length; j >= i; j--)
+    {
+        pS->str[j + pT->length] = pS->str[j];
+    }
+    for (j = 0; j <= pT->length - 1; j++)
+    {
+        pS->str[j + i] = pT->str[j];
+    }
+    
+    pS->length = pS->length + pT->length;
+
+    return OK;
+}
