@@ -19,5 +19,7 @@ int main()
         //Subs = "Wo"
     StrInsert(&S, &Subs, 2);
         //S = "WoWow"
+    StrReplace(&S, 1, 3, Subs);
+        //S = "WWow"
     return 0;
 }

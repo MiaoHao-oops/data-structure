@@ -137,3 +137,45 @@ Status StrInsert(HeString *pS, HeString *pT, int i)
 
     return OK;
 }
+
+Status StrReplace(HeString *pS, int i, int j, HeString T)
+{
+    int k;
+    if (i < 0 || i > pS->length - 1 || j < 1 || j > pS->length - i)
+    {
+            //illegal input
+        return ERROR;
+    }
+    if (j < T.length)
+    {
+        if (pS->length  + T.length - j >= pS->size)
+        {
+            pS->str = (char *)realloc(pS->str, (pS->length + T.length - j + 1) * sizeof(char));
+            if (!pS->str)
+            {
+                    //unsuccessful allocation
+                return ERROR;
+            }
+            pS->size = pS->length + T.length - j + 1;
+        }
+        for (k = pS->length - 1; k > i + j - 1; k--)
+        {
+            pS->str[k + T.length - j] = pS->str[k];
+        }
+    }
+    else
+    {
+        for (k = i + j; k < pS->length; k++)
+        {
+            pS->str[k + T.length - j] = pS->str[k];
+        }
+    }
+
+    pS->length = pS->length + T.length - j;
+    pS->str[pS->length] = '\0';
+    for (k = 0; k < T.length; k++)
+    {
+        pS->str[k + i] = T.str[k];
+    }
+    return OK;
+}

@@ -45,4 +45,8 @@ Status StrSubstr(HeString S, HeString *pSubs, int i, int j);
 Status StrInsert(HeString *pS, HeString *pT, int i);
     //StrInsert insert HeString T before the i-th character in HeString S.
 
+Status StrReplace(HeString *pS, int i, int j, HeString T);
+    //StrReplace replaces the exceeding j characters beginning at the i-th character in S with T.
+    //0 <= i <= pS->length - 1
+    //1 <= j <= pS->length - i
 #endif
