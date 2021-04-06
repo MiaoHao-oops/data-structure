@@ -49,4 +49,8 @@ Status StrReplace(HeString *pS, int i, int j, HeString T);
     //StrReplace replaces the exceeding j characters beginning at the i-th character in S with T.
     //0 <= i <= pS->length - 1
     //1 <= j <= pS->length - i
+
+int StrIndex_BF(HeString S, HeString T, int pos);
+    //If there is a substring of S after the pos-th character equals to T, returns the index of the beginning character, else returns 0.
+    //BruteForce Algorithm
 #endif

@@ -21,5 +21,6 @@ int main()
         //S = "WoWow"
     StrReplace(&S, 1, 3, Subs);
         //S = "WWow"
+    StrIndex_BF(S, Subs, 0);
     return 0;
 }
