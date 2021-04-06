@@ -27,13 +27,21 @@ Status IsStrEqual(HeString S1, HeString S2)
         return 0;
     }
 
-    while (*(S1.str++) == *(S2.str++))
+    char *s, *t;
+    s = S1.str;
+    t = S2.str;
+    while (*s == *t)
     {
             //Compare each character in each string.
-        ;
+        s++;
+        t++;
+        if (*s == '\0' || *t == '\0')
+        {
+            break;
+        }
     }
 
-    return (*(S1.str) - *(S2.str)) == 0;
+    return (*(s) - *(t)) == 0;
 }
 
 int StrCmp(HeString S1, HeString S2)
