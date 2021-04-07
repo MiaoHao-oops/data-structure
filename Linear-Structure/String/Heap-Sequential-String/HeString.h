@@ -52,5 +52,9 @@ Status StrReplace(HeString *pS, int i, int j, HeString T);
 
 int StrIndex_BF(HeString S, HeString T, int pos);
     //If there is a substring of S after the pos-th character equals to T, returns the index of the beginning character, else returns 0.
+    //S is the main string, and T is the pattern string.
     //BruteForce Algorithm
+
+int StrIndex_KMP(HeString S, HeString T, int pos);
+    //KMP Algorithm
 #endif
