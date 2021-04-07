@@ -1,6 +1,6 @@
 #include "HeString.h"
 
-char sc[] = "Wow"; 
+char sc[] = "Sample"; 
 
 int main()
 {
@@ -10,17 +10,16 @@ int main()
 
     int lenS;
     lenS = StrLen(S);
-        //lenS = 3
 
     StrAssign(&S, sc);
-        //S.str = "Wow"
 
-    StrSubstr(S, &Subs, 0, 2);
-        //Subs = "Wo"
-    StrInsert(&S, &Subs, 2);
-        //S = "WoWow"
-    StrReplace(&S, 1, 3, Subs);
-        //S = "WWow"
+    StrSubstr(S, &Subs, 5, 1);
+
+    //StrInsert(&S, &Subs, 2);
+
+    //StrReplace(&S, 1, 3, Subs);
+
     StrIndex_BF(S, Subs, 0);
+    printf("%d\n", StrIndex_KMP(S, Subs, 0));
     return 0;
 }
