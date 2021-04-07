@@ -6,7 +6,7 @@ $(TAR):$(OBJS)
 	$(CC) -o $@ $^
 
 %.o:%.c
-	$(CC) $^ -c -o $@
+	$(CC) $^ -c -g -o $@
 
 clean:
 	$(RM) *.o $(TAR) -r
