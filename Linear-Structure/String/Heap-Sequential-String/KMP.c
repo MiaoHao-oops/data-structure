@@ -8,7 +8,9 @@ int StrIndex_KMP(HeString S, HeString T, int pos)
     GetNext(T, next);
     int j, k;
     j = pos;
+        //j is the main str index.
     k = 0;
+        //k is the pattern str index.
     while (j < S.length && k < T.length)
     {
         if (S.str[j] == T.str[k])
