@@ -13,7 +13,7 @@ int main()
 
     StrAssign(&S, sc);
 
-    StrSubstr(S, &Subs, 5, 1);
+    StrSubstr(S, &Subs, -1, 1);
 
     //StrInsert(&S, &Subs, 2);
 

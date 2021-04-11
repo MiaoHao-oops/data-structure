@@ -1,11 +1,16 @@
 #include "HeString.h"
 Status GetNext(HeString T, int next[]);
+Status GetNextVal(HeString T, int next[]);
 
 int StrIndex_KMP(HeString S, HeString T, int pos)
 {
+    if (!T.length)
+    {
+        return -1;
+    }
     int *next;
     next = (int *)malloc((T.length - 1) * sizeof(int));
-    GetNext(T, next);
+    GetNextVal(T, next);
     int j, k;
     j = pos;
         //j is the main str index.
@@ -50,6 +55,42 @@ Status GetNext(HeString T, int next[])
         if (T.str[j] == T.str[k])
         {
             next[j] = next[j - 1] + 1;
+            j++;
+            k++;
+        }
+        else if (k)
+        {
+            k = next[k - 1];
+        }
+        else
+        {
+                //if k == 0, the match is failed.
+            next[j++] = 0;
+        }
+    }
+    return 0;
+}
+
+Status GetNextVal(HeString T, int next[])
+{
+    int j, k;
+    j = 1;
+        //j is pattern str index.
+    k = 0;
+        //k is match index.
+    next[0] = 0;
+    while (j < T.length - 1)
+    {
+        if (T.str[j] == T.str[k])
+        {
+            if (T.str[j + 1] == T.str[k + 1])
+            {
+                next[j] = next[k];
+            }
+            else
+            {
+                next[j] = next[j - 1] + 1;
+            }
             j++;
             k++;
         }

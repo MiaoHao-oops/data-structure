@@ -2,6 +2,11 @@
 
 int StrIndex_BF(HeString S, HeString T, int pos)
 {
+    if(!T.length)
+    {
+            //T cannot be empty.
+        return -1;
+    }
     int i;
     HeString Subs;
     InitStr(&Subs);
@@ -13,5 +18,5 @@ int StrIndex_BF(HeString S, HeString T, int pos)
             return i;
         }
     }
-    return 0;
+    return -1;
 }
