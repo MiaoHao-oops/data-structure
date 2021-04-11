@@ -4,5 +4,6 @@
 # Object files
 *.o
 
-# Vscode configuration files
-*.json
+# Vscode or VS configuration files
+/.vs
+/.vscode
