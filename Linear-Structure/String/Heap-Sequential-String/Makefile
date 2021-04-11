@@ -1,5 +1,5 @@
 TAR=main.exe
-OBJS=main.o operation.o BruteForce.o KMP.o
+OBJ=main.o operation.o BruteForce.o KMP.o
 CC=gcc
 CFLAGS+=-c -g -Wall
 
