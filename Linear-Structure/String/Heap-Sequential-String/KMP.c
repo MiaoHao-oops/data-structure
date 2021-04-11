@@ -4,7 +4,7 @@ Status GetNext(HeString T, int next[]);
 int StrIndex_KMP(HeString S, HeString T, int pos)
 {
     int *next;
-    next = (int *)malloc(T.length * sizeof(int));
+    next = (int *)malloc((T.length - 1) * sizeof(int));
     GetNext(T, next);
     int j, k;
     j = pos;
@@ -45,7 +45,7 @@ Status GetNext(HeString T, int next[])
     k = 0;
         //k is match index.
     next[0] = 0;
-    while (j < T.length)
+    while (j < T.length - 1)
     {
         if (T.str[j] == T.str[k])
         {
