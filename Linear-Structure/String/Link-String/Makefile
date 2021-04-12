@@ -2,12 +2,13 @@ TAR=main.exe
 OBJ=KMP.o main.c operation
 CC=gcc
 CFLAGS+=-c -g -Wall
+CCNAME=-o $@
 
 $(TAR):$(OBJ)
-	$(CC) -o $@ $^
+	$(CC) $(CCNAME) $^
 
 %.o:%.c
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CC) $^ $(CFLAGS) $(CCNAME)
 
 clean:
 	$(RM) *.o $(TAR) -r
