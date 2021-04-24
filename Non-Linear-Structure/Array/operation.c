@@ -18,6 +18,7 @@ Status InitArray(Array *pA, int dim, ...)
         exit(OVERFLOW);
     }
 
+        // get the dementions for the VAL ap
     int i;
     int elemtotal = 1;
     va_start(ap, dim);
@@ -32,17 +33,21 @@ Status InitArray(Array *pA, int dim, ...)
     }
     va_end(ap);
 
+        // allotate memory for pA->base
     pA->base= (ElemType *)malloc(elemtotal * sizeof(ElemType));
     if (!pA->base)
     {
         exit(OVERFLOW);
     }
     
+        // allotate memory for pA->constant
     pA->constants = (int *)malloc(dim * sizeof(int));
     if (!pA->constants)
     {
         return OVERFLOW;
     }
+
+        // calculate c_i and restore the result in pA->constants[i - 1]
     pA->constants[dim - 1] = 1;
     for (i = dim - 2; i >= 0; i--)
     {
