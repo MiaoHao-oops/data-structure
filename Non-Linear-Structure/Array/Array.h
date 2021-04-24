@@ -11,6 +11,8 @@
 #define UNDERFLOW -1
 #define OVERFLOW -2
 
+#define MAX_ARRAY_DIM 10
+
 typedef int Status;
 typedef int ElemType;
 typedef struct
@@ -25,8 +27,9 @@ typedef struct
     int *constants;
 }Array;
 
-Status InitArray(Array *A, int dim, ...);
-    /* InitArray functions as follows:
+Status InitArray(Array *pA, int dim, ...);
+    /* 
+     * InitArray functions as follows:
      * allocate memory for the array
      * the size of each demension is transfered by the VAL ...
      * calculate constants 
