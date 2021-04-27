@@ -55,3 +55,20 @@ Status InitArray(Array *pA, int dim, ...)
     }
     return OK;
 }
+
+Status Locate(Array A, va_list ap, int *off)
+{
+    *off = 0;
+
+    int i, ind;
+    for (i = 0; i < A.dim; i++)
+    {
+        ind = va_arg(ap, int);
+        if (ind <= 0 || ind >= A.bounds[i])
+        {
+            return OVERFLOW;
+        }
+        *off += A.constants[i] * ind;
+   }
+   return OK;
+}

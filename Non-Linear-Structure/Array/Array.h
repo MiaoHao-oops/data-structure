@@ -35,4 +35,12 @@ Status InitArray(Array *pA, int dim, ...);
      * calculate constants 
      */
 
+Status LocateElem(Array A, va_list ap, int *off);
+    /*
+     * LocateElem functions as follows:
+     * input the absolute location of an element
+     * return the offset of the element by passing the argument *off
+     * if the indexes are legal, returns OK
+     * else returns OVERFLOW
+     */
 #endif
