@@ -72,3 +72,16 @@ Status Locate(Array A, va_list ap, int *off)
    }
    return OK;
 }
+
+Status Value(Array A, ElemType *e, ...)
+{
+    va_list ap;
+    va_start(ap, e);
+    int loc, off;
+    if ((loc = Locate(A, ap, &off)) <= 0)
+    {
+        return OVERFLOW;
+    }
+    *e = *(A.base + off);
+    return OK;
+}

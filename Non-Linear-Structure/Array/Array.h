@@ -43,4 +43,11 @@ Status LocateElem(Array A, va_list ap, int *off);
      * if the indexes are legal, returns OK
      * else returns OVERFLOW
      */
+
+Status Value(Array A, ElemType *e, ...);
+    /*
+     * Value functions as follows:
+     * input the absolute location of an element
+     * gives the value of the element with the absolute location to e
+     */
 #endif
