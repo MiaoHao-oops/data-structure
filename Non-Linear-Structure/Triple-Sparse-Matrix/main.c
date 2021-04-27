@@ -8,14 +8,26 @@ Status GetVec(Vector *V);
 
 int main()
 {
-    TSMatrix M;
-    Vector V;
+    TSMatrix M1, M2, M3;
+    Vector V1, V2;
     int i, j;
     scanf("%d%d\n", &i, &j);
-    InitMat(&M, i, j);
-    InitVec(&V);
-    GetVec(&V);
-    GetMat(M, V);
+    InitMat(&M1, i, j);
+    InitVec(&V1);
+    GetVec(&V1);
+    GetMat(M1, V1);
+
+    InitMat(&M2, i, j);
+    InitVec(&V2);
+    GetVec(&V2);
+    GetMat(M2, V2);
+
+    InitMat(&M3, i, j);
+
+    AddMat(M1, M2, M3);
+
+    PutMat(M3);
+
     return 0;
 }
 

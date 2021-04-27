@@ -58,4 +58,16 @@ Status GetMat(TSMatrix M, Vector V);
      * establish the linked list
      */
 
+Status AddMat(TSMatrix M1, TSMatrix M2, TSMatrix M3);
+    /*
+     * M3 = M1 + M2
+     */
+
+Status PutMat(TSMatrix M);
+    /*
+     * PutMat functions as follows:
+     * print the non-zero elements in the matrix by order
+     * print the 0-1 location matrix
+     */
+
 #endif
