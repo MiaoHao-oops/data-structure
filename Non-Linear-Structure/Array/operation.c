@@ -56,6 +56,19 @@ Status InitArray(Array *pA, int dim, ...)
     return OK;
 }
 
+Status Assign(Array A, ElemType e, ...)
+{
+    va_list ap;
+    va_start(ap, e);
+    int off;
+    if (Locate(A, ap, &off) <= 0)
+    {
+        return OVERFLOW;
+    }
+    *(A.base + off) = e;
+    return OK;
+}
+
 Status Locate(Array A, va_list ap, int *off)
 {
     *off = 0;
@@ -77,8 +90,8 @@ Status Value(Array A, ElemType *e, ...)
 {
     va_list ap;
     va_start(ap, e);
-    int loc, off;
-    if ((loc = Locate(A, ap, &off)) <= 0)
+    int off;
+    if (Locate(A, ap, &off) <= 0)
     {
         return OVERFLOW;
     }
