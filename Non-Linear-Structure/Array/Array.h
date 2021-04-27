@@ -35,10 +35,17 @@ Status InitArray(Array *pA, int dim, ...);
      * calculate constants 
      */
 
+Status Assign(Array A, ElemType e, ...);
+    /*
+     * Assign functions as follows:
+     * input the absolute location of an element
+     * gives the value of e to the element in A, to which the absolute address refers to
+     */
+
 Status Locate(Array A, va_list ap, int *off);
     /*
      * Locate functions as follows:
-     * input the absolute location of an element
+     * get the absolute location of an element from the VAL ap
      * return the offset of the element by passing the argument *off
      * if the indexes are legal, returns OK
      * else returns OVERFLOW
