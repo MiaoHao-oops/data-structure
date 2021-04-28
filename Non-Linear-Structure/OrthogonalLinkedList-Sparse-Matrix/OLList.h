@@ -24,4 +24,10 @@ Status PutMat(OSMatrix M);
 	 * put the vector V of non-zero elements in M
 	 * put the location 0-1 matrix
 	 */
+
+Status AddMat(OSMatrix *M1, OSMatrix *M2);
+    /*
+     * AddMat functions as follows:
+     * M1 = M1 + M2
+     */
 #endif

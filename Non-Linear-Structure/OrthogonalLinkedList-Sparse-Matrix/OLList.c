@@ -147,6 +147,7 @@ Status PutMat(OSMatrix M)
 				{
 					printf ("1\n");
 				}
+				p = p->right;
 			}
 			else
 			{
@@ -161,5 +162,121 @@ Status PutMat(OSMatrix M)
 			}
 		}
 	}
+	return OK;
+}
+
+Status AddMat(OSMatrix *M1, OSMatrix *M2)
+{
+	OLNode *p, *q, *r, *s;
+	int i;
+	int res;
+
+	for (i = 0; i < M1->mu; i++)
+	{
+		p = M1->rhead[i];
+		q = M2->rhead[i];
+		
+		while (p || q)
+		{
+			if (p && q)
+			{
+				res = p->data + q->data;
+			}
+			if (p && q && p->j == q->j && res)
+			{
+				p->data = res;
+				p = p->right;
+				q = q->right;
+			}
+			else if (p && (!q || p->j < q->j))
+			{
+				p = p->right;
+			}
+			else if (q && (!p || p->j > q->j))
+			{
+				s = (OLNode *)malloc(sizeof(OLNode));
+				s->i = q->i;
+				s->j = q->j;
+				s->data = q->data;
+				s->right = NULL;
+				s->down = NULL;
+
+				r = M1->rhead[i];
+				if (r == p)
+				{
+					M1->rhead[i] = s;
+					s->right = p;
+				}
+				else
+				{
+					while (r->right != p)
+					{
+						r = r->right;
+					}
+					s->right = r->right;
+					r->right = s;
+				}
+
+				r = M1->chead[s->j];
+				if (!r || r->i > s->i)
+				{
+					M1->rhead[s->j] = s;
+					s->down = r;
+				}
+				else
+				{
+					while (r->down && r->down->i < q->i)
+					{
+						r = r->down;
+					}
+					s->down = r->down;
+					r->down = s;
+				}
+
+				M1->tu++;
+				q = q->right;
+			}
+			else if (p && q && p->j == q->j && !res)
+			{
+				r = M1->rhead[i];
+				if (r == p)
+				{
+					M1->rhead[i] = p->right;
+					p->right = NULL;
+				}
+				else
+				{
+					while (r->right != p)
+					{
+						r = r->right;
+					}
+					r->right = p->right;
+					p->right = NULL;
+				}
+
+				r = M1->chead[p->j];
+				if (M1->chead[p->j] == p)
+				{
+					M1->chead[p->j] = p->down;
+					p->down = NULL;
+				}
+				else
+				{
+					while (r->down != p)
+					{
+						r = r->down;
+					}
+					r->down = p->down;
+					p->down = NULL;
+				}
+
+				M1->tu--;
+				p = p->right;
+				q = q->right;
+				free(p);
+			}
+		}
+	}
+
 	return OK;
 }
