@@ -3,11 +3,11 @@
 
 #include "main.h"
 
-Status InitMat(OSMatrix *M);
+Status InitMat(OSMatrix *M, int i, int j);
 	/*
 	 * InitMat functions as follows:
 	 * initialize rhead and chead with NULL
-	 * initialize mu, nu, tu with 0 
+	 * initialize tu with 0, mu with i, nu with j 
 	 */
 
 Status GetMat(OSMatrix* M);

@@ -4,9 +4,14 @@
 
 int main()
 {
-    OSMatrix M;
-    InitMat(&M);
-    GetMat(&M);
+    int i, j;
+    scanf("%d%d", &i, &j);
+    getchar();
+    OSMatrix M1, M2;
+    InitMat(&M1, i, j);
+    GetMat(&M1);
+    InitMat(&M2, i, j);
+    GetMat(&M2);
 
     return 0;
 }

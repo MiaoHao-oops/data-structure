@@ -1,32 +1,25 @@
 #include "OLList.h"
 #include "Vector.h"
 
-Status InitMat(OSMatrix *M)
+Status InitMat(OSMatrix *M, int i, int j)
 {
 	M->chead = NULL;
 	M->rhead = NULL;
-	M->mu = 0;
-	M->nu = 0;
+	M->mu = i;
+	M->nu = j;
 	M->tu = 0;
 	return OK;
 }
 
 Status GetMat(OSMatrix *M)
 {
-	if (M->mu && M->nu)
-	{
-		return ERROR;
-	}
-
-	int i, j, Coe, vind = 0;
+	int i, j;
 	int m, n;
+	int Coe, vind = 0;
     Vector V;
 
-	scanf("%d%d", &m, &n);
-	getchar();
-
-	M->mu = m;
-	M->nu = n;
+	m = M->mu;
+	n = M->nu;
 
 	M->rhead = (OLink *)malloc((m + 1) * sizeof(OLink));
 	M->chead = (OLink *)malloc((n + 1) * sizeof(OLink));
