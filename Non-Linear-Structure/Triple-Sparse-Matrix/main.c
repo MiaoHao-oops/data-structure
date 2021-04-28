@@ -70,5 +70,9 @@ Status GetVec(Vector *V)
             break;
         }
     }
+    if (!V->elem[0])
+    {
+        V->length--;
+    }
     return OK;
 }
