@@ -36,7 +36,7 @@ Status GetMat(OSMatrix *M, Vector V)
 	{
 		for (j = 0; j < M->nu; j++)
 		{
-			scanf("d", &Coe);
+			scanf("%d", &Coe);
 			if (Coe)
 			{
 				p = (OLNode *)malloc(sizeof(OLNode));
