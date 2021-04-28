@@ -1,6 +1,16 @@
 #include "main.h"
 
-Status GetMat(OLList *M, Vector V)
+Status InitMat(OSMatrix *M)
+{
+	M->chead = NULL;
+	M->rhead = NULL;
+	M->mu = 0;
+	M->nu = 0;
+	M->tu = 0;
+	return OK;
+}
+
+Status GetMat(OSMatrix *M, Vector V)
 {
 	if (M)
 	{

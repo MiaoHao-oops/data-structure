@@ -22,7 +22,7 @@ typedef struct
 {
 	OLink *rhead, *chead;
 	int mu, nu, tu;
-}OLList;
+}OLList, OSMatrix;
 typedef struct
 {
     ElemType *elem;

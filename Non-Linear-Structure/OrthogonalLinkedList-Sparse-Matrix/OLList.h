@@ -3,7 +3,14 @@
 
 #include "main.h"
 
-Status GetMat(OLList* M, Vector V);
+Status InitMat(OSMatrix *M);
+	/*
+	 * InitMat functions as follows:
+	 * initialize rhead and chead with NULL
+	 * initialize mu, nu, tu with 0 
+	 */
+
+Status GetMat(OSMatrix* M, Vector V);
 	/*
 	 * GetMat functions as follows:
 	 * get the non-zero elements from the vector V
