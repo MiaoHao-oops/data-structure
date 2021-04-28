@@ -10,11 +10,18 @@ Status InitMat(OSMatrix *M, int i, int j);
 	 * initialize tu with 0, mu with i, nu with j 
 	 */
 
-Status GetMat(OSMatrix* M);
+Status GetMat(OSMatrix *M);
 	/*
 	 * GetMat functions as follows:
 	 * get the non-zero elements from the vector V
 	 * get the location from the 0-1 matrix
 	 * create a OLList to represent the matrix
+	 */
+
+Status PutMat(OSMatrix M);
+	/*
+	 * GetMat functions as follows:
+	 * put the vector V of non-zero elements in M
+	 * put the location 0-1 matrix
 	 */
 #endif

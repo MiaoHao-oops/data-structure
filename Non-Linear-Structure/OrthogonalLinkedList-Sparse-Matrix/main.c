@@ -13,5 +13,7 @@ int main()
     InitMat(&M2, i, j);
     GetMat(&M2);
 
+    PutMat(M1);
+
     return 0;
 }

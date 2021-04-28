@@ -96,3 +96,70 @@ Status GetMat(OSMatrix *M)
 
 	return OK;
 }
+
+Status PutMat(OSMatrix M)
+{
+	int i, j;
+	int m, n, t = 0;
+	OLNode *p;
+
+	m = M.mu;
+	n = M.nu;
+
+	if (M.tu == 0)
+	{
+		printf("\n");
+	}
+	else
+	{
+		for (i = 0; i < m; i++)
+		{
+			p = M.rhead[i];
+			while (p)
+			{
+				t++;
+				if (t < M.tu)
+				{
+					printf("%d ", p->data);
+				}
+				else
+				{
+					printf ("%d\n", p->data);
+				}
+				p = p->right;
+			}
+		}
+	}
+	
+
+	for (i = 0; i < m; i++)
+	{
+		p = M.rhead[i];
+		for (j = 0; j < n; j++)
+		{
+			if (p && p->i == i && p->j == j)
+			{
+				if (j != n - 1)
+				{
+					printf ("1 ");
+				}
+				else
+				{
+					printf ("1\n");
+				}
+			}
+			else
+			{
+				if (j != n - 1)
+				{
+					printf ("0 ");
+				}
+				else
+				{
+					printf ("0\n");
+				}
+			}
+		}
+	}
+	return OK;
+}
