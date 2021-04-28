@@ -220,7 +220,7 @@ Status AddMat(OSMatrix *M1, OSMatrix *M2)
 				r = M1->chead[s->j];
 				if (!r || r->i > s->i)
 				{
-					M1->rhead[s->j] = s;
+					M1->chead[s->j] = s;
 					s->down = r;
 				}
 				else
@@ -242,7 +242,7 @@ Status AddMat(OSMatrix *M1, OSMatrix *M2)
 				if (r == p)
 				{
 					M1->rhead[i] = p->right;
-					p->right = NULL;
+					//p->right = NULL;
 				}
 				else
 				{
@@ -251,14 +251,14 @@ Status AddMat(OSMatrix *M1, OSMatrix *M2)
 						r = r->right;
 					}
 					r->right = p->right;
-					p->right = NULL;
+					//p->right = NULL;
 				}
 
 				r = M1->chead[p->j];
 				if (M1->chead[p->j] == p)
 				{
 					M1->chead[p->j] = p->down;
-					p->down = NULL;
+					//p->down = NULL;
 				}
 				else
 				{
@@ -267,13 +267,14 @@ Status AddMat(OSMatrix *M1, OSMatrix *M2)
 						r = r->down;
 					}
 					r->down = p->down;
-					p->down = NULL;
+					//p->down = NULL;
 				}
 
 				M1->tu--;
-				p = p->right;
+				s = p->right;
 				q = q->right;
 				free(p);
+				p = s;
 			}
 		}
 	}
