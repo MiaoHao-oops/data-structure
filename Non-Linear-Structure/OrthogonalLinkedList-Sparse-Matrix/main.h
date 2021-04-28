@@ -16,7 +16,7 @@ typedef struct OLNode
 {
 	int i, j;
 	ElemType data;
-	OLNode *right, *down;
+	struct OLNode *right, *down;
 }OLNode, *OLink;
 typedef struct
 {
