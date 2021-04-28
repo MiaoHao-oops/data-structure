@@ -1,4 +1,5 @@
-#include "main.h"
+#include "OLList.h"
+#include "vector.h"
 
 Status InitMat(OSMatrix *M)
 {
@@ -10,18 +11,22 @@ Status InitMat(OSMatrix *M)
 	return OK;
 }
 
-Status GetMat(OSMatrix *M, Vector V)
+Status GetMat(OSMatrix *M)
 {
-	if (M)
+	if (M->mu && M->nu)
 	{
-		free(M);
+		return ERROR;
 	}
-	int m, n, t;
-	scanf("%d%d%d", &m, &n, &t);
+
+	int i, j, Coe, vind = 0;
+	int m, n;
+    Vector V;
+
+	scanf("%d%d", &m, &n);
+	getchar();
 
 	M->mu = m;
 	M->nu = n;
-	M->tu = t;
 
 	M->rhead = (OLink *)malloc((m + 1) * sizeof(OLink));
 	M->chead = (OLink *)malloc((n + 1) * sizeof(OLink));
@@ -29,8 +34,19 @@ Status GetMat(OSMatrix *M, Vector V)
 	{
 		exit(OVERFLOW);
 	}
+	for (i = 0; i < m + 1; i++)
+	{
+		M->rhead[i] = NULL;
+	}
+	for (j = 0; j < n + 1; j++)
+	{
+		M->chead[j] = NULL;
+	}
+	
+    InitVec(&V);
+    GetVec(&V);
 
-	int i, j, Coe, vind = 0;
+	M->tu = V.length;
 	OLNode *p, *q;
 	for (i = 0; i < M->mu; i++)
 	{

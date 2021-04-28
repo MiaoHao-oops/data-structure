@@ -4,13 +4,9 @@
 
 int main()
 {
-    Vector V;
-    InitVec(&V);
-    GetVec(&V);
-
     OSMatrix M;
     InitMat(&M);
-    GetMat(&M, V);
+    GetMat(&M);
 
     return 0;
 }

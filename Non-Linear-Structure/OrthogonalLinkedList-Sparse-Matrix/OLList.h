@@ -10,7 +10,7 @@ Status InitMat(OSMatrix *M);
 	 * initialize mu, nu, tu with 0 
 	 */
 
-Status GetMat(OSMatrix* M, Vector V);
+Status GetMat(OSMatrix* M);
 	/*
 	 * GetMat functions as follows:
 	 * get the non-zero elements from the vector V

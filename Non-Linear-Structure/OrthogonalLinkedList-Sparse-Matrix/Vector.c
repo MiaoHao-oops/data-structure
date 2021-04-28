@@ -1,4 +1,4 @@
-#include "main.h"
+#include "Vector.h"
 
 Status InitVec(Vector *V)
 {
