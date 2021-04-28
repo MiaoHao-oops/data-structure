@@ -1,5 +1,5 @@
 #include "OLList.h"
-#include "vector.h"
+#include "Vector.h"
 
 Status InitMat(OSMatrix *M)
 {
