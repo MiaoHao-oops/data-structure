@@ -90,6 +90,7 @@ Status StrAssign(HeString *pS, char *sc)
 
     return OK;
 }
+
 Status StrSubstr(HeString S, HeString *pSubs, int i, int j)
 {
     if (i < 0 || i >= S.length || j < 0 || i + j - 1 >= S.length)
