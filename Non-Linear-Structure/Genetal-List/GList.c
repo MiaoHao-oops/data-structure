@@ -8,7 +8,7 @@ Status CreateGList(GList *L, HeString S)
 
     InitStr(&SubS);
     InitStr(&Hsub);
-    
+
     if (IsStrEqual(S, "()"))
     {
         *L = NULL;
@@ -51,5 +51,118 @@ Status CreateGList(GList *L, HeString S)
         }
     }
 
+    return OK;
+}
+
+// Status PutGList(GList L)
+// {
+//     GLNode *p;
+//     p = L;
+//     if (!p)
+//     {
+//         return OK;
+//     }
+//     if (p->ptr.hp && p->type)
+//     {
+//         if (p->ptr.hp->type)
+//         {
+//             putchar('(');
+//         }
+//         PutGList(p->ptr.hp);
+//         if (p->ptr.tp)
+//         {
+//             putchar(',');
+//             PutGList(p->ptr.tp);
+//         }
+//         if (p->ptr.hp->type)
+//         {
+//             putchar(')');
+//         }
+//     }
+//     else if (!p->type)
+//     {
+//         putchar(p->atom);
+//     }
+
+//     return OK;
+// }
+
+Status PutGList(GList L)
+{
+    if (!L)
+    {
+        return OK;
+    }
+    if (L->type)
+    {
+        if (L->ptr.hp->type)
+        {
+            putchar('(');
+        }
+        PutGList(L->ptr.hp);
+        if (L->ptr.tp)
+        {
+            putchar(',');
+            PutGList(L->ptr.tp);
+        }
+        else
+        {
+            putchar(')');
+        }        
+    }
+    else
+    {
+        putchar(L->atom);
+    }
+    return OK;
+}
+
+Status DelAtom(GList *L, AtomType e)
+{
+    GLNode *p, *head;
+    if (!*L)
+    {
+        return OK;
+    }
+    head = (*L)->ptr.hp;
+    if ((!head->type) && head->atom == e)
+    {
+        p = (*L)->ptr.tp;
+        DelAtom(&p, e);
+        (*L)->ptr.hp = NULL;
+        free(head);
+        if (p && !p->ptr.hp)
+        {
+            (*L)->ptr.tp = p->ptr.tp;
+            free(p);            
+        }
+    }
+    else if ((!head->type) && head->atom != e)
+    {
+        DelAtom(&(*L)->ptr.tp, e);
+        p = (*L)->ptr.tp;
+        if (p && !p->ptr.hp)
+        {
+            (*L)->ptr.tp = p->ptr.tp;
+            free(p);
+        }
+    }
+    else if (head->type)
+    {
+        DelAtom(&head, e);
+        p = (*L)->ptr.hp;
+        if (p && !p->ptr.hp)
+        {
+            (*L)->ptr.hp = p->ptr.tp;
+            free(p);
+        }
+        DelAtom(&(*L)->ptr.tp, e);
+        p = (*L)->ptr.tp;
+        if (p && !p->ptr.hp)
+        {
+            (*L)->ptr.tp = p->ptr.tp;
+            free(p);
+        }
+    }
     return OK;
 }

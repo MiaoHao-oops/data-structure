@@ -18,7 +18,7 @@ Status InitStr(HeString *pS)
 Status GetStr(HeString *S)
 {
     int c, i = 0;
-    while ((c = getchar()) != EOF && c != '\n')
+    while ((c = getchar()) != EOF && c != '\n' && c != ' ')
     {
         S->str[i++] = c;
     }
