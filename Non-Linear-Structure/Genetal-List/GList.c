@@ -54,39 +54,6 @@ Status CreateGList(GList *L, HeString S)
     return OK;
 }
 
-// Status PutGList(GList L)
-// {
-//     GLNode *p;
-//     p = L;
-//     if (!p)
-//     {
-//         return OK;
-//     }
-//     if (p->ptr.hp && p->type)
-//     {
-//         if (p->ptr.hp->type)
-//         {
-//             putchar('(');
-//         }
-//         PutGList(p->ptr.hp);
-//         if (p->ptr.tp)
-//         {
-//             putchar(',');
-//             PutGList(p->ptr.tp);
-//         }
-//         if (p->ptr.hp->type)
-//         {
-//             putchar(')');
-//         }
-//     }
-//     else if (!p->type)
-//     {
-//         putchar(p->atom);
-//     }
-
-//     return OK;
-// }
-
 Status PutGList(GList L)
 {
     if (!L)
